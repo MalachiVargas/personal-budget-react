@@ -1,6 +1,8 @@
 import React from "react";
+import ChartOne from "../ChartOne/ChartOne";
+import ChartTwo from "../ChartTwo/ChartTwo";
 
-function HomePage() {
+function HomePage(props) {
   return (
     <main className='container center'>
       <article className='page-area'>
@@ -49,10 +51,7 @@ function HomePage() {
             is to never go over the budget.
           </p>
         </div>
-        <div className='text-box'>
-          <h3>ChartJS</h3>
-          <canvas id='myChart' width='250' height='250'></canvas>
-        </div>
+        <ChartOne title={props.title} budget={props.budget} />
         <div className='text-box'>
           <h3>Results</h3>
           <p>
@@ -61,8 +60,11 @@ function HomePage() {
           </p>
         </div>
       </article>
-      <h3 id='d3js'>D3JS</h3>
-      <div id='my_dataviz'></div>
+      <ChartTwo
+        title={props.title}
+        budget={props.budget}
+        doData={props.doData}
+      />
     </main>
   );
 }
